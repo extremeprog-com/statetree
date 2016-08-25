@@ -1,0 +1,22 @@
+{
+  "name": "statetree",
+  "description": "Library for creation data-oriented architecture of web applications.",
+  "main": "server.js",
+  "authors": [
+    "Oleg Sergienko"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "state",
+    "tree"
+  ],
+  "homepage": "https://github.com/extremeprog-com/statetree",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

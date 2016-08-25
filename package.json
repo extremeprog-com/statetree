@@ -1,0 +1,23 @@
+{
+  "name": "statetree",
+  "version": "0.0.1",
+  "description": "Library for creation data-oriented architecture of web applications.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extremeprog-com/statetree.git"
+  },
+  "keywords": [
+    "state",
+    "tree"
+  ],
+  "author": "Oleg Sergienko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/extremeprog-com/statetree/issues"
+  },
+  "homepage": "https://github.com/extremeprog-com/statetree#readme"
+}
