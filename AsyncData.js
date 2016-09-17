@@ -107,7 +107,7 @@ function deepMergeData(object, data, bypassFields) {
         object.__proto__ = AsyncData.prototype;
         if(!oldDataTree[object.Id]) oldDataTree[object.Id] = object;
     }
-
+    
     // check if given data is Array of Objects (with field :Id)
     if( object instanceof Array &&
         data   instanceof Array &&
@@ -143,16 +143,6 @@ function deepMergeData(object, data, bypassFields) {
 
         fields.map(function(field) {
             if(bypassFields && bypassFields.indexOf(field) > -1 || field[0] == '$') return;
-
-            if(field == 'Columns') { // todo remove this hack
-                if(!(data[field] instanceof Array)) {
-                    data[field] = Object.keys(data[field])
-                        .map(function(key) { return data[field][key] });
-                }
-                if(typeof data['TotalRowCount'] == 'undefined') {
-                    data['TotalRowCount'] = data['PreviewRowCount'] || 1000; // todo: remove after fixing bugs
-                }
-            }
 
             if(object[field] && data[field] && typeof object[field] == 'object' && typeof data[field] == 'object') {
                 deepMergeData(object[field], data[field], bypassFields);
