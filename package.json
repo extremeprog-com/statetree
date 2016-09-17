@@ -4,7 +4,7 @@
   "description": "Library for creation data-oriented architecture of web applications.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bash -c 'MOCHA_COLORS=true ./node_modules/.bin/mocha -b --sort --full-trace tests/*/*.js | node tests_add_stack.js; test \"${PIPESTATUS[0]}\" -eq \"0\" && node tests_check.js'"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/extremeprog-com/statetree/issues"
   },
-  "homepage": "https://github.com/extremeprog-com/statetree#readme"
+  "homepage": "https://github.com/extremeprog-com/statetree#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "mocha": "^3.0.2"
+  }
 }

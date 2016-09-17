@@ -3,7 +3,7 @@
   "description": "Library for creation data-oriented architecture of web applications.",
   "main": "server.js",
   "authors": [
-    "Oleg Sergienko"
+    "Oleg Sergienko, Alexandra Mourzina"
   ],
   "license": "MIT",
   "keywords": [
