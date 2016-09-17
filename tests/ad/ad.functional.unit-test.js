@@ -19,13 +19,20 @@ function generateReadyObject() {
 }
 
 it('should show changed when object is changed', function(done) {
-    o = generateReadyObject();
-    o.a = 3;
-    assert(o.isChanged());
 
     o = generateEmptyObject();
     o.a = 3;
     assert(o.isChanged());
+
+    o = generateReadyObject();
+    o.a = 3;
+    assert(o.isChanged());
+
+    o = generateReadyObject();
+    o.t = {
+        Id: '222'
+    };
+    assert(!o.isChanged());
 
     done();
 });

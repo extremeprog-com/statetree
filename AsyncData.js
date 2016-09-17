@@ -78,9 +78,14 @@ AsyncData.prototype.setUpdating = function(cb) {
 AsyncData.prototype.isChanged = function() {
     // compare this and this._old_value
     return (function cmp(obj, old) {
-        var keys = Object.keys(obj), key;
+        var keys = [], key;
+        for(key in obj) {
+            if(obj.hasOwnProperty(key) && obj[key] && !obj[key].Id) {
+                keys.push(key);
+            }
+        }
         for(key in old) {
-            if(old.hasOwnProperty(key) && keys.indexOf(key) === -1) {
+            if(old.hasOwnProperty(key) && keys.indexOf(key) === -1 && old[key] && !old[key].Id) {
                 return true;
             }
         }
@@ -107,7 +112,7 @@ function deepMergeData(object, data, bypassFields) {
         object.__proto__ = AsyncData.prototype;
         if(!oldDataTree[object.Id]) oldDataTree[object.Id] = object;
     }
-    
+
     // check if given data is Array of Objects (with field :Id)
     if( object instanceof Array &&
         data   instanceof Array &&
