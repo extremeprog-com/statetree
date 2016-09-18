@@ -34,5 +34,30 @@ it('should show changed when object is changed', function(done) {
     };
     assert(!o.isChanged());
 
+    o = generateReadyObject();
+    o.a = 3;
+    o.b = 5;
+    o.t = {
+        Id: '222'
+    };
+    assertObjects(o.getChangedFields(), {a: 3, b: 5});
+
     done();
 });
+
+it('check rejection', function(done) {
+
+    o = generateReadyObject();
+    o.setUpdating(function(accept, error, reject) {
+        reject();
+    });
+
+    assert.propertyVal(o, '_loaded'         , true);
+    assert.propertyVal(o, '_updating'       , false);
+    assert.propertyVal(o, '_changed'        , false);
+    assert.propertyVal(o, '_error'          , false);
+    assert.propertyVal(o, '_error_message'  , false);
+
+    done();
+});
+

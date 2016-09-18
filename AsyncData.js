@@ -4,7 +4,7 @@ var
 
 function default_merge_fn(object, data, bypassFields) {
     // check if given data is Array of Objects (with field :Id)
-    if( object instanceof Array && data   instanceof Array) {
+    if( object instanceof Array && data instanceof Array) {
         var shouldBeInArray = [];
         for(var i = 0; i < data.length; i++) {
             var currentObject = object.filter(function(it) {
@@ -61,7 +61,6 @@ AsyncData = function(custom_merge_fn) {
  * getPromise
  * @function
  *
- *
  * @returns {Promise} promise object which you can use to know if the data has been loaded/updated from the server
  */
 AsyncData.prototype.getPromise = function() {
@@ -108,6 +107,9 @@ AsyncData.prototype.setUpdating = function(cb) {
             this._updating = false;
             this._error = true;
             this._error_message = err_message;
+        }.bind(this),
+        function() {
+            this._updating = false;
         }.bind(this)
     )
 };
@@ -146,4 +148,28 @@ AsyncData.prototype.isChanged = function() {
     })(this, this._old_value || {});
 };
 
-
+/**
+ * getChangedFields
+ * @function
+ */
+AsyncData.prototype.getChangedFields = function() {
+    return (function(obj, old) {
+        var keys = [], key, changed = {};
+        for(key in obj) {
+            if(obj.hasOwnProperty(key) && obj[key] && !obj[key].Id) {
+                keys.push(key);
+            }
+        }
+        for(key in old) {
+            if(old.hasOwnProperty(key) && keys.indexOf(key) === -1 && old[key] && !old[key].Id) {
+                keys.push(key);
+            }
+        }
+        for(var i = 0; i < keys.length; i++) {
+            key = keys[i];
+            if(old[key] != obj[key]) {
+                changed[key] = obj[key];
+            }
+        }
+    })(this, this._old_value || {})
+};

@@ -3,6 +3,8 @@ request = require('request');
 assert = require('chai').assert;
 
 assertObjects = function(o1, o2) {
+    o1 = o1 || {};
+    o2 = o2 || {};
     var keys = Object.keys(o1);
     for (var i = 0; i < keys.length; i++) {
         if(o1[keys[i]] === o2[keys[i]]) continue;
