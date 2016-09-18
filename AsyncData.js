@@ -171,5 +171,6 @@ AsyncData.prototype.getChangedFields = function() {
                 changed[key] = obj[key];
             }
         }
+        return changed;
     })(this, this._old_value || {})
 };

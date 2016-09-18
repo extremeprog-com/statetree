@@ -40,7 +40,9 @@ it('should show changed when object is changed', function(done) {
     o.t = {
         Id: '222'
     };
-    assertObjects(o.getChangedFields(), {a: 3, b: 5});
+    o.x = '2342';
+
+    assertObjects(o.getChangedFields(), {a: 3, b: 5, x: '2342'});
 
     done();
 });
