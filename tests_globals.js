@@ -10,7 +10,6 @@ assertObjects = function(o1, o2) {
         if(o1[keys[i]] === o2[keys[i]]) continue;
         else {
             throw new Error('assertObjects error: fields by key ' + keys[i] + ' do not match o1=' + JSON.stringify(o1) + ' o2' + JSON.stringify(o2));
-            throw new Error();
         }
     }
 
