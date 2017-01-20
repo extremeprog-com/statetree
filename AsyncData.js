@@ -53,7 +53,6 @@ AsyncData = function(custom_merge_fn) {
     Object.defineProperty(this, '_changed'      , { enumerable: false, value: false, writable: true });
     Object.defineProperty(this, '_old_value'    , { enumerable: false, value: false, writable: true });
     Object.defineProperty(this, '_error'        , { enumerable: false, value: false, writable: true });
-    Object.defineProperty(this, '_error'        , { enumerable: false, value: false, writable: true });
     Object.defineProperty(this, '_error_message', { enumerable: false, value: false, writable: true });
     Object.defineProperty(this, '_merge_fn'     , { enumerable: false, value: custom_merge_fn || default_merge_fn, writable: true });
     //Object.defineProperty(this, '_stack'        , { enumerable: false, value: new Error().stack });
@@ -234,4 +233,12 @@ AsyncData.prototype.getChangedFields = function() {
         }
         return changed;
     })(this, this._old_value || {})
+};
+
+/**
+ * Revert old value
+ * @function
+ */
+AsyncData.prototype.revert = function() {
+    this._merge_fn(this, this._old_value);
 };
