@@ -211,6 +211,8 @@ AsyncData.prototype.isChanged = function() {
 /**
  * getChangedFields
  * @function
+ * 
+ * Get fields that have been changed locally
  */
 AsyncData.prototype.getChangedFields = function() {
     return (function(obj, old) {
@@ -236,8 +238,10 @@ AsyncData.prototype.getChangedFields = function() {
 };
 
 /**
- * Revert old value
+ * revert
  * @function
+ * 
+ * Revert old value
  */
 AsyncData.prototype.revert = function() {
     this._merge_fn(this, this._old_value);
