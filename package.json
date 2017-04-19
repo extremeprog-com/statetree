@@ -2,7 +2,7 @@
   "name": "statetree",
   "version": "0.0.2",
   "description": "Library for creation data-oriented architecture of web applications.",
-  "main": "server.js",
+  "main": "AsyncData.js",
   "scripts": {
     "test": "bash -c 'MOCHA_COLORS=true ./node_modules/.bin/mocha -b --sort --full-trace tests/*/*.js | node tests_add_stack.js; test \"${PIPESTATUS[0]}\" -eq \"0\" && node tests_check.js'"
   },
