@@ -1,6 +1,6 @@
 {
   "name": "statetree",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library for creation data-oriented architecture of web applications.",
   "main": "AsyncData.js",
   "scripts": {
