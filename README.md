@@ -1,6 +1,12 @@
 # statetree
 Library for creation data-oriented architecture of web applications.
 
+## Installation
+
+```bash
+$ npm install --save-dev statetree
+```
+
 ## AsyncData
 AsyncData is a wrapper for objects that are often being updated, changed and synced.
 
