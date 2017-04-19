@@ -1,6 +1,6 @@
 {
   "name": "statetree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library for creation data-oriented architecture of web applications.",
   "main": "server.js",
   "scripts": {
