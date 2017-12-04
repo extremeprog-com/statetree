@@ -248,6 +248,8 @@
         this._merge_fn(this, this._old_value);
     };
 
+    AsyncData.Tree = {};
+
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports = AsyncData;
     } else if (typeof window !== 'undefined') {
