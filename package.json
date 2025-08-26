@@ -1,6 +1,6 @@
 {
   "name": "statetree",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Library for creation data-oriented architecture of web applications.",
   "main": "AsyncData.js",
   "scripts": {
@@ -21,9 +21,9 @@
     "url": "https://github.com/extremeprog-com/statetree/issues"
   },
   "homepage": "https://github.com/extremeprog-com/statetree#readme",
-  "dependencies": {
+  "devDependencies": {
     "chai": "^3.5.0",
     "colors": "^1.1.2",
-    "mocha": "^3.0.2"
+    "mocha": "^11.7.1"
   }
 }

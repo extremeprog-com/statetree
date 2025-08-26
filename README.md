@@ -1,5 +1,5 @@
 # statetree
-Library for creation data-oriented architecture of web applications.
+Data-oriented architecture for web applications.
 
 ## Installation
 
@@ -8,7 +8,7 @@ $ npm install --save-dev statetree
 ```
 
 ## AsyncData
-AsyncData is a wrapper for objects that are often being updated, changed and synced.
+AsyncData is a wrapper for objects that are often updated, changed and synced.
 
 ### Initialization
 ```javascript
@@ -17,9 +17,9 @@ var User = new AsyncData();
 
 ### Properties
 ```javascript
-User._loaded        // identificator that the object is loaded or not
-User._updating      // identificator that the object is updating or not
-User._changed       // identificator that the object has been changed locally (and is not saved)
+User._loaded        // identification that the object is loaded or not
+User._updating      // identification that the object is updating or not
+User._changed       // identification that the object has been changed locally (and is not saved)
 User._old_value     // contains old version of the object
 User._error         //
 User._error_message //
